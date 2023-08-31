@@ -2,6 +2,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient("api", c 
+    => c.BaseAddress = new Uri("http://back:80"));
 
 var app = builder.Build();
 
