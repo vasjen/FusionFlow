@@ -1,0 +1,25 @@
+version: '3.9'
+services:
+  api:
+   image: newweb/api
+   build:
+      context: ../
+      dockerfile: src/Api/Dockerfile
+   ports:
+      - 5000:80
+   networks:
+      - mynetwork
+
+  web:
+    image: newweb/web
+    build:
+      context: ../
+      dockerfile: src/Web/Dockerfile
+    ports:
+      - 10000:80
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+
